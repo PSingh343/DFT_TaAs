@@ -1,0 +1,72 @@
+&CONTROL
+    calculation = 'nscf'
+    prefix = 'TaAs'
+    outdir = './out/'
+    pseudo_dir = './pseudo/'
+    verbosity = 'high'
+    tstress = .true.
+    tprnfor = .true.
+    etot_conv_thr = 1.0d-8
+    forc_conv_thr = 1.0d-5
+/
+
+&SYSTEM
+    ibrav = 6
+    celldm(1) = 3.431
+    celldm(3) = 3.374
+    nat = 8
+    ntyp = 2
+    ecutwfc = 60
+    ecutrho = 600
+    occupations = 'smearing'
+    smearing = 'cold'
+    degauss = 0.01
+/
+
+&ELECTRONS
+    conv_thr = 1.0d-9
+    electron_maxstep = 200
+    mixing_beta = 0.7
+/
+
+ATOMIC_SPECIES
+Ta 180.94788 Ta.pbesol-v1.0.UPF
+As 74.9216 As.pbesol-n-rrkjus_psl.0.2.UPF
+
+ATOMIC_POSITIONS crystal
+Ta 0.5 0.0 0.25
+Ta 0.5 0.5 0.75
+Ta 0.0 0.5 0.5
+Ta 0.0 0.0 0.25
+As 0.0 0.5 0.1677
+As 0.0 0.0 0.9177
+As 0.5 0.0 0.6677
+As 0.5 0.5 0.4177
+
+K_POINTS crystal_b
+25
+0.0 0.0 0.0
+0.5 0.0 0.0
+0.25 0.25 0.25
+0.5 0.5 0.0
+0.0 0.0 0.0
+0.5 0.5 0.5
+0.5 0.5 0.0
+0.5 0.5 0.0
+0.0 0.0 0.0
+0.5 0.0 0.0
+0.5 0.5 0.5
+0.0 0.0 0.0
+0.5 0.5 0.5
+-0.5 0.0 0.0
+-0.25 -0.25 -0.25
+-0.5 -0.5 0.0
+0.0 0.0 0.0
+-0.5 -0.5 -0.5
+-0.5 -0.5 0.0
+-0.5 -0.5 0.0
+0.0 0.0 0.0
+-0.5 0.0 0.0
+-0.5 -0.5 -0.5
+0.0 0.0 0.0
+-0.5 -0.5 -0.5

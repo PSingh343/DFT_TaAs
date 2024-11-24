@@ -1,0 +1,46 @@
+&CONTROL
+  calculation = 'scf'
+  etot_conv_thr = 8.0000000000d-05
+  forc_conv_thr = 1.0000000000d-04
+  outdir = './out/'
+  prefix = 'TaAs_soc'
+  pseudo_dir = './pseudo/'
+  verbosity = 'high'
+/
+&SYSTEM
+  ibrav = 6
+  celldm(1) = 3.43130762500
+  celldm(3) = 3.37388916682
+  nat = 8
+  ntyp = 2
+  occupations = 'smearing'
+  smearing = 'cold'
+  ecutwfc = 40.0
+  ecutrho = 320.0
+  degauss = 0.01
+  noncolin = .true.               ! Important for SOC
+  lspinorb = .true.               ! Enable Spin-Orbit Coupling
+  spin_angle = 0.0               ! Optionally define a spin orientation
+  starting_magnetization(1) = 0.0
+  starting_magnetization(2) = 0.0
+  ! starting_magnetization for Ta and As atoms can be set if necessary.
+/
+&ELECTRONS
+  conv_thr = 1.0d-9
+  electron_maxstep = 80
+  mixing_beta = 0.7
+/
+ATOMIC_SPECIES
+Ta     180.94788 ta_pbesol_v1.uspp.F.UPF
+As     74.9216 As.pbesol-n-rrkjus_psl.0.2.UPF
+ATOMIC_POSITIONS crystal
+Ta       0.500000000   0.000000000   0.249963993
+Ta       0.500000000   0.500000000   0.999965211
+Ta       0.000000000   0.500000000   0.749965001
+Ta       0.000000000   0.000000000   0.499965719
+As       0.000000000   0.500000000   0.167734308
+As       0.000000000   0.000000000   0.917735402
+As       0.500000000   0.000000000   0.667734784
+As       0.500000000   0.500000000   0.417735583
+K_POINTS automatic
+  4 4 4 0 0 0  ! Example k-point grid (adjust as needed)
